@@ -118,7 +118,7 @@ p2 {
     margin-top: 40vh;
     margin-bottom: 50vh;
     margin-left: 20%;
-    margin-right: 10%;
+    margin-right: 20%;
     max-width: 1000px;
 
 }
@@ -128,12 +128,12 @@ p2 {
     margin-top: 30vh;
     margin-bottom: 90vh;
     margin-left: 20%;
+    margin-right: 20%;
     max-width: 1000px;
 }
 
 #contact {
     position: relative;
-
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -346,6 +346,7 @@ p2 {
         left:0;
         right:0;
         padding-left: 50px;
+        padding-right: 50px;
     }
     #mail, #linkedin, #github {
         height: 20px;
