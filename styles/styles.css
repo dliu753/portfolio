@@ -126,7 +126,6 @@ p2 {
     position: absolute;
     top:210%;
     left: 30%;
-    font-size: 20px;
     text-align: left;
 }
 
@@ -161,7 +160,8 @@ p2 {
 /* portfolio img */
 #dev {
     float: right;
-    /* border: 1px solid #EEA13B; */
+    border: 2px solid #EEA13B;
+    border-radius: 10px;
     width:300px;
     height:350px;
     margin: 50px;
