@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', (e)=>{
 // fix contact button
 $('#contactbtn').css({'opacity':'1'});
 
-// TODO: dynamically position div content
+// TODO: smooth menu button
+// TODO: show logo with menu button
 
 // fade in elements in view
 var $fading_elements = $('.hidden');
@@ -80,9 +81,8 @@ $('#acontact').click(function(e){
 });
 
 $('#aicon').click(function(e){
-    
-    location.reload(true);
     e.preventDefault();
+    window.location.reload();
 });
 
 // responsive navbar
