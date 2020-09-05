@@ -105,7 +105,19 @@ $('.ficon').mouseleave(function(){
 });
 
 // Slideshow
-$('#portfolioSlide').css({"display":"block"});
+// $('#portfolioSlide').css({"display":"block"});
+var slideIndex = 1;
+goToSlides(slideIndex);
+
+$('.nextBtn').click(function(e) {
+    e.preventDefault();
+    nextSlide(slideIndex);
+});
+
+$('.prevBtn').click(function(e) {
+    e.preventDefault();
+    prevSlide(slideIndex);
+});
 
 // responsive navbar function
 function shrinkNav() {
@@ -142,4 +154,25 @@ function check_if_in_view() {
                 $element.removeClass('fade-in');
             }
     });
+}
+
+function nextSlide(n) {
+    goToSlides(slideIndex += n);
+}
+
+function prevSlide(n) {
+    goToSlides(slideIndex -= n);
+}
+
+// slideshow functions
+function goToSlides(n) {
+    var slidesArr = document.getElementsByClassName("slideshow");
+    var dotArr = document.getElementsByClassName("dot");
+    if(n > slidesArr.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slidesArr.length; }
+    for (i=0; i<slidesArr.length; i++) {
+        slidesArr[i].style.display = "none";
+    }
+    dotArr[slideIndex-1].style.color = "#EEA13B !important";
+    slidesArr[slideIndex-1].style.display = "block";
 }
