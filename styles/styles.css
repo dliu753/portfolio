@@ -92,6 +92,14 @@ h4 {
     color: #F6F6F4;
 }
 
+h5 {
+    font-family: "Calibri", Helvetica, Arial;
+    font-size: 20px;
+    color: #F6F6F4;
+    margin:5px;
+    text-align: left;
+}
+
 p1 {
     font-size: 20px;
     font-family: "Andale Mono", Helvetica, Arial;
@@ -101,6 +109,12 @@ p1 {
 
 p2 {
     font-size: 20px;
+    font-family: "Alata", Helvetica, Arial;
+    color: #898D94;
+}
+
+p3 {
+    font-size: 15px;
     font-family: "Alata", Helvetica, Arial;
     color: #898D94;
 }
@@ -129,7 +143,7 @@ p2 {
     margin-bottom: 90vh;
     margin-left: 20%;
     margin-right: 20%;
-    max-width: 1000px;
+    max-width: 1200px;
 }
 
 #contact {
@@ -211,6 +225,12 @@ p2 {
 
 .color {
     color: #EEA13B;
+}
+
+.colorSlide {
+    color: #EEA13B;
+    font-size: 15px;
+    font-family: "Changa", "Alata", Helvetica, Arial;
 }
 
 .hidden {
@@ -331,6 +351,12 @@ p2 {
     h4 {
         font-size: 28px;
     }
+    h5 {
+        font-size: 15px;
+    }
+    p3, .colorSlide {
+        font-size: 12px;
+    }
     .footer {
         font-size: 10px;
     }
@@ -352,6 +378,10 @@ p2 {
         height: 20px;
         width: 20px;
         margin: 15px;        
+    }
+    .dot {
+        height: 10px !important;
+        width: 10px !important;
     }
 }
 
@@ -387,3 +417,82 @@ p2 {
     box-shadow: 1px 3px #8f621a;
     transform: translateY(-0.3em);
 }
+
+/* slideshow */
+.slideshow {
+    display: none;
+}
+
+.slideshowContainer {
+    position: relative;
+}
+
+.slides {
+    position: absolute;
+    max-width: 800px;
+    width: 50%;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 50px;
+    filter:blur(0.8px) sepia(10) saturate(300%) hue-rotate(-10deg);
+    border-radius: 1px;
+    border: 1px solid #8f621a;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.slides:hover {
+    filter:blur(0px) sepia(0) saturate(100%) hue-rotate(0deg);
+}
+
+.caption {
+    position: absolute;
+    background-color: #10141c;
+    font-family: "Alata", "Andale Mono", Helvetica, Arial;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+    width: 40%;
+    left: 40%;
+    top: 5vh;
+}
+
+.slideIcons {
+    float: right;
+}
+.slideIcons:hover{
+    filter:sepia(10) saturate(150%) hue-rotate(-10deg);
+}
+.prevBtn, .nextBtn {
+    position: absolute;
+    cursor: pointer;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    top: 15vh;
+}
+
+.prevBtn {
+    left: 0;
+}
+
+.nextBtn {
+    right: 0;
+}
+
+.dot {
+    position: relative;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: background-color 0.6s ease;
+    display: inline-flex;
+  }
+
+  #dotContainer {
+      text-align: center;
+  }

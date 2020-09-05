@@ -104,6 +104,9 @@ $('.ficon').mouseleave(function(){
     });
 });
 
+// Slideshow
+$('#portfolioSlide').css({"display":"block"});
+
 // responsive navbar function
 function shrinkNav() {
     var nav = document.querySelector('#TopNav');
@@ -140,5 +143,3 @@ function check_if_in_view() {
             }
     });
 }
-
-// Debugging
