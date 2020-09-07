@@ -52,32 +52,32 @@ $('#contactbtn').css({'opacity':'1'});
 // fade in elements in view
 var $fading_elements = $('.hidden');
 var $window = $(window);
-const fadeTime = 900;
 
 $window.on('scroll', check_if_in_view);
 $window.on('scroll resize', check_if_in_view);
 $window.trigger('scroll');
 
 // top nav bar buttons will scroll to page
+const scrollTime = 900;
 $('#ahome').click(function(e){
     e.preventDefault();
-    $('html').animate({scrollTop: $('html').offset().top}, fadeTime);
+    $('html').animate({scrollTop: $('html').offset().top}, scrollTime);
     // alert($("html").scrollTop() + " px");
 });
 
 $('#aabout').click(function(e){
     e.preventDefault();
-    $('html').animate({scrollTop: $('#about').offset().top - 200}, fadeTime);
+    $('html').animate({scrollTop: $('#about').offset().top - 200}, scrollTime);
 });
 
 $('#aprojects').click(function(e){
     e.preventDefault();
-    $('html').animate({scrollTop: $('#projects').offset().top - 200}, fadeTime);
+    $('html').animate({scrollTop: $('#projects').offset().top - 200}, scrollTime);
 });
 
 $('#acontact').click(function(e){
     e.preventDefault();
-    $('html').animate({scrollTop: $('#contact').offset().top - 200}, fadeTime);
+    $('html').animate({scrollTop: $('#contact').offset().top - 200}, scrollTime);
 });
 
 $('#aicon').click(function(e){
@@ -105,18 +105,17 @@ $('.ficon').mouseleave(function(){
 });
 
 // Slideshow
-// $('#portfolioSlide').css({"display":"block"});
 var slideIndex = 1;
 goToSlides(slideIndex);
 
 $('.nextBtn').click(function(e) {
     e.preventDefault();
-    nextSlide(slideIndex);
+    nextSlide(1);
 });
 
 $('.prevBtn').click(function(e) {
     e.preventDefault();
-    prevSlide(slideIndex);
+    nextSlide(-1);
 });
 
 // responsive navbar function
@@ -160,19 +159,24 @@ function nextSlide(n) {
     goToSlides(slideIndex += n);
 }
 
-function prevSlide(n) {
-    goToSlides(slideIndex -= n);
-}
-
 // slideshow functions
 function goToSlides(n) {
     var slidesArr = document.getElementsByClassName("slideshow");
     var dotArr = document.getElementsByClassName("dot");
     if(n > slidesArr.length) { slideIndex = 1; }
     if (n < 1) { slideIndex = slidesArr.length; }
-    for (i=0; i<slidesArr.length; i++) {
-        slidesArr[i].style.display = "none";
+
+    if(slidesArr.length != dotArr.length) {
+        console.log("Slideshow lengths do not match!");
     }
-    dotArr[slideIndex-1].style.color = "#EEA13B !important";
-    slidesArr[slideIndex-1].style.display = "block";
+
+    for (i=0; i<slidesArr.length; i++) {
+        if(slidesArr[i].classList.contains('imageAfter')) {
+            // console.log("slidesArr[" + i + "] contains imageAfter");
+            slidesArr[i].classList.replace('imageAfter', 'imageBefore');
+            dotArr[i].style.backgroundColor = "white";
+        }
+    }
+    dotArr[slideIndex-1].style.backgroundColor = "#EEA13B";
+    slidesArr[slideIndex-1].className += " imageAfter";
 }
