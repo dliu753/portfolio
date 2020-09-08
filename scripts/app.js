@@ -19,10 +19,11 @@ document.addEventListener('DOMContentLoaded', (e)=>{
             // fade in iconlogo at last iteration
             if (i == navChildren.length) {
                 logoIcon.classList.add('fade-in-nav');
-                logoIcon.style.animationDelay = i*0.15 + 's';
+                // logoIcon.style.animationDelay = i*0.15 + 's';
             }
             else if (navChildren[i].className === 'menu') {
-                navChildren[i].style.opacity = 1;
+                // navChildren[i].style.opacity = 1;
+                navChildren[i].classList.add('fade-in-nav');
             } else {
                 navChildren[i].classList.add('fade-in-nav');
                 navChildren[i].style.animationDelay = i*0.15 + 's';
@@ -138,7 +139,7 @@ $('.prevBtn').click(function(e) {
 
 // responsive navbar function
 function openNav() {
-    $('.logoicon').css("display","none");
+    $('.logoicon').css({"display":"none"});
     $('.topnav').animate({
         height: "+=350px",
     }, 500);
@@ -158,20 +159,20 @@ function openNav() {
 function closeNav() {
     $('.topnav').animate({
         height: "-=350px",
-    }, 500);
+    }, 300);
     $('.icon').animate({
         opacity: "0",
-    }, 500);
+    }, 300);
     setTimeout(function(){
         $('.icon').attr({style: "content:url(../assets/menu.png)"});
         $('.icon').animate({
             opacity: "1",
-        }, 500);
-    },500);
+        }, 300);
+    },300);
     setTimeout(function(){
         shrinkNav();
-    },500);
-    $('.logoicon').css("display","block");
+    },300);
+    $('.logoicon').css({"display":"block"});
     navStatus = true;
 }
 
