@@ -46,9 +46,6 @@ document.addEventListener('DOMContentLoaded', (e)=>{
 // fix contact button
 $('#contactbtn').css({'opacity':'1'});
 
-// TODO: smooth menu button
-// TODO: show logo with menu button
-
 // fade in elements in view
 var $fading_elements = $('.hidden');
 var $window = $(window);
@@ -57,38 +54,59 @@ $window.on('scroll', check_if_in_view);
 $window.on('scroll resize', check_if_in_view);
 $window.trigger('scroll');
 
+// responsive navbar
+var navStatus = true;
+$('.menu').click(function(e){
+    e.preventDefault();
+    if (navStatus == true) {
+        openNav();
+    }
+    else if (navStatus == false) {
+        closeNav();
+    }
+    else {
+        console.log("ERROR: click menu missed all conditions.")
+    }
+});
+
 // top nav bar buttons will scroll to page
 const scrollTime = 900;
 $('#ahome').click(function(e){
     e.preventDefault();
     $('html').animate({scrollTop: $('html').offset().top}, scrollTime);
     // alert($("html").scrollTop() + " px");
+    if (navStatus==false) {
+        closeNav();
+    }
 });
 
 $('#aabout').click(function(e){
     e.preventDefault();
     $('html').animate({scrollTop: $('#about').offset().top - 200}, scrollTime);
+    if (navStatus==false) {
+        closeNav();
+    }
 });
 
 $('#aprojects').click(function(e){
     e.preventDefault();
     $('html').animate({scrollTop: $('#projects').offset().top - 200}, scrollTime);
+    if (navStatus==false) {
+        closeNav();
+    }
 });
 
 $('#acontact').click(function(e){
     e.preventDefault();
     $('html').animate({scrollTop: $('#contact').offset().top - 200}, scrollTime);
+    if (navStatus==false) {
+        closeNav();
+    }
 });
 
 $('#aicon').click(function(e){
     e.preventDefault();
     window.location.reload();
-});
-
-// responsive navbar
-$('.menu').click(function(e){
-    e.preventDefault();
-    shrinkNav();
 });
 
 // footer icons
@@ -106,6 +124,7 @@ $('.ficon').mouseleave(function(){
 
 // Slideshow
 var slideIndex = 1;
+console.log( "imageBefore " + $(".imageBefore").length );
 goToSlides(slideIndex);
 
 $('.nextBtn').click(function(e) {
@@ -119,18 +138,52 @@ $('.prevBtn').click(function(e) {
 });
 
 // responsive navbar function
+function openNav() {
+    $('.logoicon').css("display","none");
+    $('.topnav').animate({
+        height: "+=350px",
+    }, 500);
+    $('.icon').animate({
+        opacity: "0",
+    }, 500);
+    setTimeout(function(){
+        $('.icon').attr({style: "content:url(../assets/menu_close.png)"});
+        $('.icon').animate({
+            opacity: "1",
+        }, 500);
+    },500);
+    shrinkNav();
+    navStatus = false;
+}
+
+function closeNav() {
+    $('.topnav').animate({
+        height: "-=350px",
+    }, 500);
+    $('.icon').animate({
+        opacity: "0",
+    }, 500);
+    setTimeout(function(){
+        $('.icon').attr({style: "content:url(../assets/menu.png)"});
+        $('.icon').animate({
+            opacity: "1",
+        }, 500);
+    },500);
+    setTimeout(function(){
+        shrinkNav();
+    },500);
+    $('.logoicon').css("display","block");
+    navStatus = true;
+}
+
 function shrinkNav() {
     var nav = document.querySelector('#TopNav');
     // console.log(nav.children);
-    const navChildren = nav.children;
-
+    const navChildren = nav.children
     if (nav.className === 'topnav') {
         nav.className += ' responsive';
-        nav.style.opacity = 1;
-        // console.log('shrinkNav: check if');
     } else {
         nav.className = 'topnav';
-        // console.log('shrinkNav: check else');
     }
 }
 
@@ -139,7 +192,6 @@ function check_if_in_view() {
     var window_height = $window.height();
     var window_top_position = $window.scrollTop();
     var window_bottom_position = (window_top_position + window_height);
-
     $.each($fading_elements, function() {
         var $element = $(this);
         var element_height = $element.outerHeight();
@@ -165,14 +217,11 @@ function goToSlides(n) {
     var dotArr = document.getElementsByClassName("dot");
     if(n > slidesArr.length) { slideIndex = 1; }
     if (n < 1) { slideIndex = slidesArr.length; }
-
     if(slidesArr.length != dotArr.length) {
         console.log("Slideshow lengths do not match!");
     }
-
     for (i=0; i<slidesArr.length; i++) {
         if(slidesArr[i].classList.contains('imageAfter')) {
-            // console.log("slidesArr[" + i + "] contains imageAfter");
             slidesArr[i].classList.replace('imageAfter', 'imageBefore');
             dotArr[i].style.backgroundColor = "white";
         }

@@ -318,9 +318,9 @@ p3 {
 
 /* responsive nav bar & resizing */
 @media screen and (max-width: 600px) {
-    .logoicon {
+    /* .logoicon {
         display: none;
-    }
+    } */
     .topnav a {
         display: none;
     }
@@ -412,16 +412,14 @@ p3 {
 }
 
 .button2:hover, .button2:focus {
-    /* background: #8f621a; */
-    /* background: #363941; */
     box-shadow: 1px 3px #8f621a;
     transform: translateY(-0.3em);
 }
 
 /* slideshow */
 .slideshow {
-    /* display: none; */
     opacity: 0;
+    transform:scale(0);
 }
 
 .slideshowContainer {
