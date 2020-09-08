@@ -124,7 +124,6 @@ $('.ficon').mouseleave(function(){
 
 // Slideshow
 var slideIndex = 1;
-console.log( "imageBefore " + $(".imageBefore").length );
 goToSlides(slideIndex);
 
 $('.nextBtn').click(function(e) {

@@ -227,6 +227,14 @@ p3 {
     color: #EEA13B;
 }
 
+#sfulink {
+    text-decoration: none;
+}
+
+/* #sfulink:hover {
+    text-decoration: underline;
+} */
+
 .colorSlide {
     color: #EEA13B;
     font-size: 15px;
@@ -411,7 +419,7 @@ p3 {
     margin-bottom: 10px;
 }
 
-.button2:hover, .button2:focus {
+.button2:hover, .button2:focus{
     box-shadow: 1px 3px #8f621a;
     transform: translateY(-0.3em);
 }
