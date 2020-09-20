@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', (e)=>{
                 navChildren[i].style.animationDelay = i*0.15 + 's';
                 // console.log(navChildren[i]);
             }
-
         }
     }, initTime+1500);
 
@@ -105,12 +104,13 @@ $('#acontact').click(function(e){
     }
 });
 
+// click on logo will refresh page
 $('#aicon').click(function(e){
     e.preventDefault();
     window.location.reload();
 });
 
-// footer icons
+// footer icons hover effects
 $('.ficon').mouseover(function(){
     $(this).animate({opacity:0.5, height: '+=10px', width: '+=10px'
         }, 200, function() {
@@ -123,7 +123,7 @@ $('.ficon').mouseleave(function(){
     });
 });
 
-// Slideshow
+// Slideshow button behaviours
 var slideIndex = 1;
 goToSlides(slideIndex);
 
@@ -137,7 +137,7 @@ $('.prevBtn').click(function(e) {
     nextSlide(-1);
 });
 
-// responsive navbar function
+// Responsive navbar functions
 function openNav() {
     $('.logoicon').css({"display":"none"});
     $('.topnav').animate({
@@ -187,7 +187,7 @@ function shrinkNav() {
     }
 }
 
-// check to see if content is in view window
+// Function to check if content is in view window
 function check_if_in_view() {
     var window_height = $window.height();
     var window_top_position = $window.scrollTop();
@@ -211,7 +211,7 @@ function nextSlide(n) {
     goToSlides(slideIndex += n);
 }
 
-// slideshow functions
+// Slideshow functions
 function goToSlides(n) {
     var slidesArr = document.getElementsByClassName("slideshow");
     var dotArr = document.getElementsByClassName("dot");

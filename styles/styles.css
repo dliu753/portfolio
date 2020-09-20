@@ -231,10 +231,6 @@ p3 {
     text-decoration: none;
 }
 
-/* #sfulink:hover {
-    text-decoration: underline;
-} */
-
 .colorSlide {
     color: #EEA13B;
     font-size: 15px;
@@ -254,7 +250,6 @@ p3 {
     --index: 0;
     opacity: 0;
     animation: fadeIn 0.8s ease-in forwards;
-    /* transition-delay: calc(0.025s * var(--index)); */
 }
 
 .topnav {
